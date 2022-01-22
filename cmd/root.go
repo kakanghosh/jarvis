@@ -15,8 +15,8 @@ var (
 
 	rootCmd = &cobra.Command{
 		Use:   utils.GetAppName(),
-		Short: "This is short message",
-		Long:  `This is the long description`,
+		Short: "J.A.R.V.I.S",
+		Long:  `JUST A REALLY VERY INTELLIGENT SYSTEM`,
 	}
 )
 
