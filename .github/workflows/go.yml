@@ -25,7 +25,7 @@ jobs:
         run: ls -l
 
       - name: Run app
-        run: jarvis -h
+        run: ./jarvis -h
 
       - name: Test
         run: go test -v ./...
