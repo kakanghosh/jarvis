@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"github/com/kakanghosh/jarvis/utils"
 
 	"github.com/spf13/cobra"
 )
@@ -12,9 +13,9 @@ func init() {
 
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "Print the version number of JARVIS",
-	Long:  `All software has versions. This is JARVIS's`,
+	Short: fmt.Sprintf("Print the version number of %s", utils.GetAppName()),
+	Long:  fmt.Sprintf("All software has versions. This is %s's", utils.GetAppName()),
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("JARVIS v1.0.0")
+		fmt.Printf("%s v1.0.0\n", utils.GetAppName())
 	},
 }

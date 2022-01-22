@@ -1,6 +1,6 @@
 package main
 
-import "github/com/kakanghosh/JARVIS/cmd"
+import "github/com/kakanghosh/jarvis/cmd"
 
 func main() {
 	cmd.Execute()

@@ -1,4 +1,4 @@
-module github/com/kakanghosh/JARVIS
+module github/com/kakanghosh/jarvis
 
 go 1.17
 

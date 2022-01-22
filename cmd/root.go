@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"github/com/kakanghosh/jarvis/utils"
 	"os"
 
 	"github.com/spf13/cobra"
@@ -13,7 +14,7 @@ var (
 	userLicense string
 
 	rootCmd = &cobra.Command{
-		Use:   "JARVIS",
+		Use:   utils.GetAppName(),
 		Short: "This is short message",
 		Long:  `This is the long description`,
 	}
@@ -32,4 +33,6 @@ func init() {
 	viper.BindPFlag("author", rootCmd.PersistentFlags().Lookup("author"))
 	viper.SetDefault("author", "NAME HERE <EMAIL ADDRESS>")
 	viper.SetDefault("license", "apache")
+
+	utils.CreateDirectoryifNotExist(utils.RootDirectory())
 }
