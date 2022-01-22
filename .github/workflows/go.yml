@@ -21,6 +21,8 @@ jobs:
 
     - name: Build
       run: go build -v ./...
+      run: ls -l
+      run: jarvis -h
 
     - name: Test
       run: go test -v ./...
