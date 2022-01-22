@@ -35,4 +35,5 @@ func init() {
 	viper.SetDefault("license", "apache")
 
 	utils.CreateDirectoryifNotExist(utils.RootDirectory())
+	utils.CreateFileIfNotExist(utils.AppsFileLocation(), `[]`)
 }

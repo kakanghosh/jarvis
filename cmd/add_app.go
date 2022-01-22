@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github/com/kakanghosh/jarvis/model"
 	"github/com/kakanghosh/jarvis/service"
-	"github/com/kakanghosh/jarvis/utils"
 
 	"github.com/spf13/cobra"
 )
@@ -30,7 +29,6 @@ func init() {
 	}
 
 	addAppCmd.RunE = func(cmd *cobra.Command, args []string) error {
-		utils.CreateFileIfNotExist(utils.AppsFileLocation(), `[]`)
 		if app := service.GetAppByName(addAppFlags.Name); app != nil {
 			return fmt.Errorf("app exist. name [%s]", addAppFlags.Name)
 		}
