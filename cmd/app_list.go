@@ -7,11 +7,14 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var appListCmd = &cobra.Command{
-	Use:   "app-list",
-	Short: "Get app list",
-	Long:  `This will show list of app`,
-}
+var (
+	showDetails bool
+	appListCmd  = &cobra.Command{
+		Use:   "app-list",
+		Short: "Get app list",
+		Long:  `This will show list of app`,
+	}
+)
 
 func init() {
 	appListCmd.RunE = func(cmd *cobra.Command, args []string) error {
@@ -23,11 +26,16 @@ func init() {
 			fmt.Println("No app found!")
 		} else {
 			for i := 0; i < len(appList); i++ {
-				fmt.Printf("%d. %s [%s] [%s]\n", i+1, appList[i].Name, appList[i].WorkingDirectory, appList[i].Command)
+				if showDetails {
+					fmt.Printf("%d. %s [%s] [%s]\n", i+1, appList[i].Name, appList[i].WorkingDirectory, appList[i].Command)
+				} else {
+					fmt.Printf("%d. %s\n", i+1, appList[i].Name)
+				}
 			}
 		}
 
 		return nil
 	}
+	appListCmd.PersistentFlags().BoolVarP(&showDetails, "details", "d", false, "Show list in details")
 	rootCmd.AddCommand(appListCmd)
 }

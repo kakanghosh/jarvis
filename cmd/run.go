@@ -25,10 +25,10 @@ func init() {
 		if len(args) == 0 {
 			return fmt.Errorf("[name] expected for %s", runCmd.Use)
 		}
-		appName := args[0]
-		app := service.GetAppByName(appName)
+		identifier := args[0]
+		app := service.GetAppByNameOrSerial(identifier)
 		if app == nil {
-			return fmt.Errorf("app not found. name [%s]", appName)
+			return fmt.Errorf("app not found [%s]", identifier)
 		}
 
 		cmdStr := fmt.Sprintf("cd %s; %s", app.WorkingDirectory, app.Command)

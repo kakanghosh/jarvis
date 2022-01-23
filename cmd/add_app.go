@@ -14,7 +14,7 @@ var addAppCmd = &cobra.Command{
 	Long:  `This will setuped application`,
 }
 
-var addAppFlags = model.AddAppFlags{
+var addAppFlags = model.AppFlags{
 	Name:             "",
 	WorkingDirectory: "",
 	Command:          "",

@@ -2,17 +2,18 @@ package model
 
 import "fmt"
 
-type AddAppFlags struct {
+type AppFlags struct {
+	Serial           int    `json:"-"`
 	Name             string `json:"name"`
 	WorkingDirectory string `json:"workingDirectory"`
 	Command          string `json:"command"`
 }
 
-func (flags *AddAppFlags) IsFlagsValid() bool {
+func (flags *AppFlags) IsFlagsValid() bool {
 	return len(flags.Name) > 0 && len(flags.WorkingDirectory) > 0 && len(flags.Command) > 0
 }
 
-func (flags *AddAppFlags) Error() string {
+func (flags *AppFlags) Error() string {
 	missingFlags := ""
 	if len(flags.Name) == 0 {
 		missingFlags += "[name]"
@@ -26,4 +27,8 @@ func (flags *AddAppFlags) Error() string {
 		missingFlags += "[cmd]"
 	}
 	return fmt.Sprintf("flags %s expected", missingFlags)
+}
+
+type UpdateAppFlags struct {
+	AppFlags
 }

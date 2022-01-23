@@ -16,17 +16,17 @@ var rmAppCmd = &cobra.Command{
 func init() {
 	rmAppCmd.RunE = func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0 {
-			return fmt.Errorf("[name] expected for %s", rmAppCmd.Use)
+			return fmt.Errorf("[name]/[serial] expected for %s", rmAppCmd.Use)
 		}
-		appName := args[0]
-		if app := service.GetAppByName(appName); app != nil {
+		identifier := args[0]
+		if app := service.GetAppByNameOrSerial(identifier); app != nil {
 			if err := service.RemoveApp(app); err == nil {
-				fmt.Printf("App removed %s\n", appName)
+				fmt.Printf("App removed %s.\n", app.Name)
 			} else {
-				return fmt.Errorf("failed to remove app %s", appName)
+				return fmt.Errorf("failed to remove app %s", app.Name)
 			}
 		} else {
-			return fmt.Errorf("'%s' app not found", appName)
+			return fmt.Errorf("'%s' app not found", identifier)
 		}
 		return nil
 	}
