@@ -16,6 +16,8 @@ var versionCmd = &cobra.Command{
 	Short: fmt.Sprintf("Print the version number of %s", utils.GetAppName()),
 	Long:  fmt.Sprintf("All software has versions. This is %s's", utils.GetAppName()),
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Printf("%s %s\n", utils.GetAppName(), utils.GetVersion())
+		user := utils.GetAuthor()
+		currentYear := utils.GetCopyRightYear()
+		fmt.Printf("%s %s @ %d\nBy %s\n", utils.GetAppName(), utils.GetVersion(), currentYear, user)
 	},
 }

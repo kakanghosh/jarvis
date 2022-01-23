@@ -3,28 +3,40 @@ package utils
 import (
 	"fmt"
 	"os"
+	"time"
+
+	"github.com/spf13/viper"
 )
 
-var (
-	appName          = "jarvis"
-	version          = "1.0.1"
-	appsFileName     = "apps.json"
-	rootDirectory    = fmt.Sprintf("%s/.jarvis", os.Getenv("HOME"))
-	appsFileLocation = fmt.Sprintf("%s/%s", rootDirectory, appsFileName)
-)
+func init() {
+	viper.SetDefault("AUTHOR", "Kakan Ghosh <kakanghosh69@gmail.com>")
+	viper.SetDefault("APP_NAME", "jarvis")
+	viper.SetDefault("APP_VERSION", "1.0.2")
+	viper.SetDefault("@YEAR", time.Now().Year())
+	viper.SetDefault("ROOT_DIRECTORY", fmt.Sprintf("%s/.jarvis", os.Getenv("HOME")))
+	viper.SetDefault("APPS_FILE_LOCATION", fmt.Sprintf("%s/%s", viper.GetString("ROOT_DIRECTORY"), "apps.json"))
+}
 
 func GetAppName() string {
-	return appName
+	return viper.GetString("APP_NAME")
 }
 
 func RootDirectory() string {
-	return rootDirectory
+	return viper.GetString("ROOT_DIRECTORY")
 }
 
 func AppsFileLocation() string {
-	return appsFileLocation
+	return viper.GetString("APPS_FILE_LOCATION")
 }
 
 func GetVersion() string {
-	return version
+	return viper.GetString("APP_VERSION")
+}
+
+func GetAuthor() string {
+	return viper.GetString("AUTHOR")
+}
+
+func GetCopyRightYear() int {
+	return viper.GetInt("@YEAR")
 }
