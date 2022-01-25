@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"github/com/kakanghosh/jarvis/service"
+	"github/com/kakanghosh/jarvis/utils/emoji"
 	"log"
 	"os/exec"
 
@@ -50,6 +51,7 @@ func init() {
 			}
 		}()
 
+		fmt.Printf("Starting app %s %s", app.Name, emoji.PERSON_RUNNING)
 		if err := execCommand.Start(); err != nil {
 			log.Fatal(err)
 		}

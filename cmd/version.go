@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"github/com/kakanghosh/jarvis/utils"
+	"github/com/kakanghosh/jarvis/utils/emoji"
 
 	"github.com/spf13/cobra"
 )
@@ -14,7 +15,7 @@ var versionCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		user := utils.GetAuthor()
 		currentYear := utils.GetCopyRightYear()
-		fmt.Printf("%s %s @ %d\nMaintain by %s\n", utils.GetAppName(), utils.GetVersion(), currentYear, user)
+		fmt.Printf("%s %s %s  %d\nMaintain by %s\n", utils.GetAppName(), utils.GetVersion(), emoji.COPY_RIGHT, currentYear, user)
 	},
 }
 
