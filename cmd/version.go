@@ -18,6 +18,6 @@ var versionCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		user := utils.GetAuthor()
 		currentYear := utils.GetCopyRightYear()
-		fmt.Printf("%s %s @ %d\nBy %s\n", utils.GetAppName(), utils.GetVersion(), currentYear, user)
+		fmt.Printf("%s %s @ %d\nMaintain by %s\n", utils.GetAppName(), utils.GetVersion(), currentYear, user)
 	},
 }

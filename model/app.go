@@ -10,7 +10,7 @@ type AppFlags struct {
 }
 
 func (flags *AppFlags) IsFlagsValid() bool {
-	return len(flags.Name) > 0 && len(flags.WorkingDirectory) > 0 && len(flags.Command) > 0
+	return len(flags.Name) > 0 && len(flags.Command) > 0
 }
 
 func (flags *AppFlags) Error() string {
@@ -18,11 +18,6 @@ func (flags *AppFlags) Error() string {
 	if len(flags.Name) == 0 {
 		missingFlags += "[name]"
 	}
-
-	if len(flags.WorkingDirectory) == 0 {
-		missingFlags += "[directory]"
-	}
-
 	if len(flags.Command) == 0 {
 		missingFlags += "[cmd]"
 	}

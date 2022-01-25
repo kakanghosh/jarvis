@@ -27,9 +27,9 @@ func init() {
 		} else {
 			for i := 0; i < len(appList); i++ {
 				if showDetails {
-					fmt.Printf("%d. %s [%s] [%s]\n", i+1, appList[i].Name, appList[i].WorkingDirectory, appList[i].Command)
+					fmt.Printf("%d. %s [%s] [%s]\n\n", i+1, appList[i].Name, appList[i].WorkingDirectory, appList[i].Command)
 				} else {
-					fmt.Printf("%d. %s\n", i+1, appList[i].Name)
+					fmt.Printf("%d. %s\n\n", i+1, appList[i].Name)
 				}
 			}
 		}

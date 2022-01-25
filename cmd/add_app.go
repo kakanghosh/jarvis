@@ -14,11 +14,7 @@ var addAppCmd = &cobra.Command{
 	Long:  `This will setuped application`,
 }
 
-var addAppFlags = model.AppFlags{
-	Name:             "",
-	WorkingDirectory: "",
-	Command:          "",
-}
+var addAppFlags = model.AppFlags{}
 
 func init() {
 	addAppCmd.PreRunE = func(cmd *cobra.Command, args []string) error {

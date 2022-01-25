@@ -88,7 +88,7 @@ func UpdateApp(updateAppFlags *model.UpdateAppFlags) (*model.AppFlags, error) {
 		}
 		appList[foundedIndex].Name = updateAppFlags.Name
 	}
-	if len(updateAppFlags.WorkingDirectory) > 0 {
+	if updateAppFlags.WorkingDirectory != "-1" {
 		appList[foundedIndex].WorkingDirectory = updateAppFlags.WorkingDirectory
 	}
 	if len(updateAppFlags.Command) > 0 {
