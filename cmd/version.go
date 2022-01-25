@@ -7,10 +7,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func init() {
-	rootCmd.AddCommand(versionCmd)
-}
-
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: fmt.Sprintf("Print the version number of %s", utils.GetAppName()),
@@ -20,4 +16,8 @@ var versionCmd = &cobra.Command{
 		currentYear := utils.GetCopyRightYear()
 		fmt.Printf("%s %s @ %d\nMaintain by %s\n", utils.GetAppName(), utils.GetVersion(), currentYear, user)
 	},
+}
+
+func init() {
+	rootCmd.AddCommand(versionCmd)
 }
