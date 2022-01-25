@@ -31,7 +31,13 @@ func init() {
 			return fmt.Errorf("app not found [%s]", identifier)
 		}
 
-		cmdStr := fmt.Sprintf("cd %s; %s", app.WorkingDirectory, app.Command)
+		cmdStr := ""
+		if len(app.WorkingDirectory) > 0 {
+			cmdStr = fmt.Sprintf("cd %s; %s", app.WorkingDirectory, app.Command)
+		} else {
+			cmdStr = app.Command
+		}
+
 		execCommand := exec.Command("sh", "-c", cmdStr)
 		stdout, err := execCommand.StdoutPipe()
 		if err != nil {
