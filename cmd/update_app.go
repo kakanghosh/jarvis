@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github/com/kakanghosh/jarvis/model"
 	"github/com/kakanghosh/jarvis/service"
+	"github/com/kakanghosh/jarvis/utils/emoji"
 
 	"github.com/spf13/cobra"
 )
@@ -30,7 +31,7 @@ func init() {
 	}
 
 	updateAppCmd.PostRun = func(cmd *cobra.Command, args []string) {
-		fmt.Printf("App updated successfully.\n")
+		fmt.Printf("App updated successfully %s\n", emoji.GREEN_CHECK_MARK)
 	}
 	updateAppCmd.PersistentFlags().IntVarP(&updateAppFlags.Serial, "serial", "s", 0, "Serial number of the app")
 	updateAppCmd.PersistentFlags().StringVarP(&updateAppFlags.Name, "name", "n", "", "Program name")
