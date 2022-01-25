@@ -32,10 +32,9 @@ func init() {
 	updateAppCmd.PostRun = func(cmd *cobra.Command, args []string) {
 		fmt.Printf("App updated successfully.\n")
 	}
-
 	updateAppCmd.PersistentFlags().IntVarP(&updateAppFlags.Serial, "serial", "s", 0, "Serial number of the app")
 	updateAppCmd.PersistentFlags().StringVarP(&updateAppFlags.Name, "name", "n", "", "Program name")
-	updateAppCmd.PersistentFlags().StringVarP(&updateAppFlags.WorkingDirectory, "directory", "d", "", "Working directory")
+	updateAppCmd.PersistentFlags().StringVarP(&updateAppFlags.WorkingDirectory, "directory", "d", "-1", "Working directory")
 	updateAppCmd.PersistentFlags().StringVarP(&updateAppFlags.Command, "cmd", "c", "", "Command to start the program")
 
 	rootCmd.AddCommand(updateAppCmd)
