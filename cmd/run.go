@@ -51,7 +51,7 @@ func init() {
 			}
 		}()
 
-		fmt.Printf("Starting app %s %s", app.Name, emoji.PERSON_RUNNING)
+		fmt.Printf("Starting app %s %s\n", app.Name, emoji.PERSON_RUNNING)
 		if err := execCommand.Start(); err != nil {
 			log.Fatal(err)
 		}
