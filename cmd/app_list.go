@@ -26,9 +26,9 @@ func init() {
 		if err != nil {
 			return err
 		}
-		fmt.Printf("%s %s\n", color.YellowText("Showing app list"), emoji.MAGNIFIED_GLASS_RIGHT)
+		fmt.Printf("%s %s\n\n", color.YellowText("Showing app list"), emoji.MAGNIFIED_GLASS_RIGHT)
 		if len(appList) == 0 {
-			fmt.Println(color.RedText("No app found!"))
+			fmt.Printf("%s\n\n", color.RedText("No app found!"))
 		} else {
 			showAppListInOutput(appList, showDetails)
 		}
@@ -42,20 +42,18 @@ func init() {
 func showAppListInOutput(appList []model.AppFlags, showDetails bool) {
 	for i, app := range appList {
 		showSingleAppInOutput(i+1, &app, showDetails)
-		if i < len(appList)-1 {
-			fmt.Println()
-		}
+		fmt.Println()
 	}
 }
 
 func showSingleAppInOutput(position int, appFlags *model.AppFlags, showDetails bool) {
-	fmt.Printf("%s.%s\n", color.BlueText(strconv.Itoa(position)), color.GreenText(appFlags.Name))
+	fmt.Printf("%s. %s\n", color.BlueText(strconv.Itoa(position)), color.GreenText(appFlags.Name))
 	if showDetails {
 		if len(appFlags.WorkingDirectory) == 0 {
-			fmt.Printf("  %s  %s \n", emoji.OPEN_FILE_FOLDER, emoji.RED_CROSS_MARK)
+			fmt.Printf("   %s  %s \n", emoji.OPEN_FILE_FOLDER, emoji.RED_CROSS_MARK)
 		} else {
-			fmt.Printf("  %s  %s\n", emoji.OPEN_FILE_FOLDER, color.CyanText(appFlags.WorkingDirectory))
+			fmt.Printf("   %s  %s\n", emoji.OPEN_FILE_FOLDER, color.CyanText(appFlags.WorkingDirectory))
 		}
-		fmt.Printf("  %s  %s\n", emoji.DOLLAR, color.YellowText(appFlags.Command))
+		fmt.Printf("   %s  %s\n", emoji.DOLLAR, color.YellowText(appFlags.Command))
 	}
 }
