@@ -27,3 +27,8 @@ func (flags *AppFlags) Error() string {
 type UpdateAppFlags struct {
 	AppFlags
 }
+
+type FileExtensionCounter struct {
+	Extension string
+	Counter   int
+}
