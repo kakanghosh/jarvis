@@ -11,10 +11,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	new string
-)
-
 var runCmd = &cobra.Command{
 	Use:   "run",
 	Short: "Run application",
@@ -61,6 +57,5 @@ func init() {
 		}
 		return nil
 	}
-	runCmd.PersistentFlags().StringVarP(&new, "new", "n", "", "test child args")
 	rootCmd.AddCommand(runCmd)
 }
