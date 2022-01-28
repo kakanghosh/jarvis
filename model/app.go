@@ -28,6 +28,11 @@ type UpdateAppFlags struct {
 	AppFlags
 }
 
+type FileExtensionCounter struct {
+	Extension string
+	Counter   int
+}
+
 type CheckUpdate struct {
 	LastChecked string `json:"lastChecked"`
 }
