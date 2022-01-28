@@ -15,6 +15,7 @@ func init() {
 	viper.SetDefault("@YEAR", time.Now().Year())
 	viper.SetDefault("ROOT_DIRECTORY", fmt.Sprintf("%s/.jarvis", os.Getenv("HOME")))
 	viper.SetDefault("APPS_FILE_LOCATION", fmt.Sprintf("%s/%s", viper.GetString("ROOT_DIRECTORY"), "apps.json"))
+	viper.SetDefault("CHECK_UPDATE_FILE_LOCATION", fmt.Sprintf("%s/%s", viper.GetString("ROOT_DIRECTORY"), "check_update.json"))
 }
 
 func GetAppName() string {
@@ -39,4 +40,8 @@ func GetAuthor() string {
 
 func GetCopyRightYear() int {
 	return viper.GetInt("@YEAR")
+}
+
+func CheckUpdateFileLocation() string {
+	return viper.GetString("CHECK_UPDATE_FILE_LOCATION")
 }

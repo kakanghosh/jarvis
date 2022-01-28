@@ -27,3 +27,7 @@ func (flags *AppFlags) Error() string {
 type UpdateAppFlags struct {
 	AppFlags
 }
+
+type CheckUpdate struct {
+	LastChecked string `json:"lastChecked"`
+}
