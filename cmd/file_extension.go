@@ -5,6 +5,7 @@ import (
 	"github/com/kakanghosh/jarvis/model"
 	"github/com/kakanghosh/jarvis/utils"
 	"github/com/kakanghosh/jarvis/utils/color"
+	"strconv"
 
 	"github.com/spf13/cobra"
 )
@@ -40,7 +41,7 @@ func init() {
 func printExtensionList(extensionCounterList []model.FileExtensionCounter, showFileCounter bool) {
 	for index, item := range extensionCounterList {
 		if showFileCounter {
-			fmt.Printf("%d. %s (%d)\n", index+1, item.Extension, item.Counter)
+			fmt.Printf("%d. %s (%s)\n", index+1, item.Extension, color.YellowText(strconv.Itoa(item.Counter)))
 		} else {
 			fmt.Printf("%d. %s \n", index+1, item.Extension)
 		}

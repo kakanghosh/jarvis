@@ -11,11 +11,11 @@ import (
 func init() {
 	viper.SetDefault("AUTHOR", "Kakan Ghosh <kakanghosh69@gmail.com>")
 	viper.SetDefault("APP_NAME", "jarvis")
-	viper.SetDefault("APP_VERSION", "1.4.0")
+	viper.SetDefault("APP_VERSION", "2.0.0")
 	viper.SetDefault("REPO_OWNER_NAME", "kakanghosh")
 	viper.SetDefault("@YEAR", time.Now().Year())
 	viper.SetDefault("ROOT_DIRECTORY", fmt.Sprintf("%s/.jarvis", os.Getenv("HOME")))
-	viper.SetDefault("APPS_FILE_LOCATION", fmt.Sprintf("%s/%s", viper.GetString("ROOT_DIRECTORY"), "apps.json"))
+	viper.SetDefault("TASKS_FILE_LOCATION", fmt.Sprintf("%s/%s", viper.GetString("ROOT_DIRECTORY"), "tasks.json"))
 	viper.SetDefault("CHECK_UPDATE_FILE_LOCATION", fmt.Sprintf("%s/%s", viper.GetString("ROOT_DIRECTORY"), "check_update.json"))
 }
 
@@ -27,8 +27,8 @@ func RootDirectory() string {
 	return viper.GetString("ROOT_DIRECTORY")
 }
 
-func AppsFileLocation() string {
-	return viper.GetString("APPS_FILE_LOCATION")
+func TasksFileLocation() string {
+	return viper.GetString("TASKS_FILE_LOCATION")
 }
 
 func GetVersion() string {

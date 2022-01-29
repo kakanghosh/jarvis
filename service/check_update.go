@@ -55,6 +55,7 @@ func DoSelfUpdate() {
 		log.Fatal(fmt.Sprintf("%s\n", color.GreenText("Release not found.")))
 	}
 	if *latestRelease.TagName != version {
+		fmt.Printf("Update found! latest release is %s\n", color.GreenText(*latestRelease.TagName))
 		downloadLink := getLatestReleaseDownloadLink(latestRelease)
 		workingDirectory, _ := os.Getwd()
 		releaseDownloadFilePath := workingDirectory + string(os.PathSeparator) + utils.GetAppName()
@@ -111,7 +112,7 @@ func getLatestRelease() (*github.RepositoryRelease, *github.Response, error) {
 }
 
 func downloadLatestRelease(releaseDownloadFilePath, url string) {
-	fmt.Printf("%s: %s\n", color.YellowText("Downloading release from"), color.BlueText(url))
+	fmt.Printf("%s %s\n", color.YellowText("Downloading release from"), color.BlueText(url))
 	_, err := utils.DownloadFile(releaseDownloadFilePath, url)
 	if err != nil {
 		log.Fatal(err)
