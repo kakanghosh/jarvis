@@ -11,7 +11,8 @@ import (
 func init() {
 	viper.SetDefault("AUTHOR", "Kakan Ghosh <kakanghosh69@gmail.com>")
 	viper.SetDefault("APP_NAME", "jarvis")
-	viper.SetDefault("APP_VERSION", "1.3.1")
+	viper.SetDefault("APP_VERSION", "1.4.0")
+	viper.SetDefault("REPO_OWNER_NAME", "kakanghosh")
 	viper.SetDefault("@YEAR", time.Now().Year())
 	viper.SetDefault("ROOT_DIRECTORY", fmt.Sprintf("%s/.jarvis", os.Getenv("HOME")))
 	viper.SetDefault("APPS_FILE_LOCATION", fmt.Sprintf("%s/%s", viper.GetString("ROOT_DIRECTORY"), "apps.json"))
@@ -44,4 +45,8 @@ func GetCopyRightYear() int {
 
 func CheckUpdateFileLocation() string {
 	return viper.GetString("CHECK_UPDATE_FILE_LOCATION")
+}
+
+func GetRepoOwnerName() string {
+	return viper.GetString("REPO_OWNER_NAME")
 }

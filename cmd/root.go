@@ -28,5 +28,5 @@ func Execute() {
 func init() {
 	utils.CreateDirectoryifNotExist(utils.RootDirectory())
 	utils.CreateFileIfNotExist(utils.AppsFileLocation(), `[]`)
-	utils.CreateFileIfNotExist(utils.CheckUpdateFileLocation(), `{"lastChecked":"28-01-2022"}`)
+	utils.CreateFileIfNotExist(utils.CheckUpdateFileLocation(), `{"lastChecked":""}`)
 }

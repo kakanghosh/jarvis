@@ -3,7 +3,6 @@ module github/com/kakanghosh/jarvis
 go 1.17
 
 require (
-	github.com/google/go-github v17.0.0+incompatible
 	github.com/google/go-github/v42 v42.0.0
 	github.com/spf13/cobra v1.3.0
 	github.com/spf13/viper v1.10.0
