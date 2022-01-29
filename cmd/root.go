@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"github/com/kakanghosh/jarvis/service"
 	"github/com/kakanghosh/jarvis/utils"
 	"os"
 
@@ -21,9 +22,11 @@ func Execute() {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
+	service.CheckUpdate()
 }
 
 func init() {
 	utils.CreateDirectoryifNotExist(utils.RootDirectory())
-	utils.CreateFileIfNotExist(utils.AppsFileLocation(), `[]`)
+	utils.CreateFileIfNotExist(utils.TasksFileLocation(), `[]`)
+	utils.CreateFileIfNotExist(utils.CheckUpdateFileLocation(), `{"lastChecked":""}`)
 }

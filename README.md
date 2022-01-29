@@ -2,22 +2,69 @@
 
 `Jarvis is a command line application.`
 
-### The goal of this application is to make developer life one step easier. The primary goal of this application to manage multiple application and many more.
+### The goal of this application is to make developer life one step easier. The primary goal of this application to automate and do repeated task with minimum step.
 
-# Example
+# Task
 
-## Add application and run
+You can add your prefered task
+with predefined script to execute the task also you can add directory if the task needs to be execute in a particular directory.
 
-You can add your prefered application which you need some manual steps before to run the application.
+```
+$ jarvis add-task -n "task-1" -d "absolute directory path of the task(optional)" -c "command to run complete the task"
+```
 
-$ `jarvis add-app -n "app-1" -d "absolute directory path of the app" -c "command to run the application"`
+> **-d (--directory)** is optional
 
-## To see the app list
+## To see the task list
 
-$ `jarvis app-list`
+```
+$ jarvis tasks
+```
 
-## To run the application
+## To run the task
 
-$ `jarvis run app-1`
+```
+$ jarvis run task-1
+```
 
-### Note: run `$ jarvis --help` to know more about the available commands.
+> Basically, you can add any thing as task to run using jarvis.
+
+> $ jarvis --help
+> to know more about the available commands.
+
+# Tidy up random files
+
+You can see extension of random files in a directory and can
+tidy up them in your preferred directory.
+
+To see all the extension available in the working directory
+
+```
+$ jarvis file-ext
+```
+
+And to see file count for the extension
+
+```
+$ jarvis file-ext -c
+```
+
+## Move random files to directory
+
+```
+$ jarvis file-tidy -e file_extension
+```
+
+Example:
+
+```
+$ jarvis file-tidy -e pdf
+```
+
+# Update jarvis
+
+You can update jarvis to latest release. Simply you can just run
+
+```
+$ jarvis update jarvis
+```
