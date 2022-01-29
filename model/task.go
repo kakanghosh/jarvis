@@ -23,16 +23,3 @@ func (flags *TaskFlags) Error() string {
 	}
 	return fmt.Sprintf("flags %s expected", missingFlags)
 }
-
-type UpdateTaskFlags struct {
-	TaskFlags
-}
-
-type FileExtensionCounter struct {
-	Extension string
-	Counter   int
-}
-
-type CheckUpdate struct {
-	LastChecked string `json:"lastChecked"`
-}
