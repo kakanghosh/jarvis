@@ -13,7 +13,7 @@ import (
 
 var (
 	showDetails bool
-	appListCmd  = &cobra.Command{
+	taskListCmd = &cobra.Command{
 		Use:   "tasks",
 		Short: "Get task list",
 		Long:  `This will show list of task`,
@@ -29,19 +29,18 @@ func showTasksRunE(cmd *cobra.Command, args []string) error {
 	if len(taskList) == 0 {
 		fmt.Printf("%s\n\n", color.RedText("No task found!"))
 	} else {
-		showAppListOutput(taskList, showDetails)
+		showTaskListOutput(taskList, showDetails)
 	}
-
 	return nil
 }
 
 func init() {
-	appListCmd.RunE = showTasksRunE
-	appListCmd.PersistentFlags().BoolVarP(&showDetails, "details", "d", false, "Show list in details")
-	rootCmd.AddCommand(appListCmd)
+	taskListCmd.RunE = showTasksRunE
+	taskListCmd.PersistentFlags().BoolVarP(&showDetails, "details", "d", false, "Show list in details")
+	rootCmd.AddCommand(taskListCmd)
 }
 
-func showAppListOutput(taskList []model.TaskFlags, showDetails bool) {
+func showTaskListOutput(taskList []model.TaskFlags, showDetails bool) {
 	for i, task := range taskList {
 		showSingleTaskOutput(i+1, &task, showDetails)
 		fmt.Println()

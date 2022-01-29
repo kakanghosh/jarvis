@@ -58,11 +58,11 @@ func GetTaskByNameOrSerial(identifier string) *model.TaskFlags {
 	return nil
 }
 
-func RemoveTask(app *model.TaskFlags) error {
+func RemoveTask(task *model.TaskFlags) error {
 	taskList, _ := GetTasklist()
 	newTaskList := make([]model.TaskFlags, 0)
 	for _, eachTask := range taskList {
-		if eachTask.Name != app.Name {
+		if eachTask.Name != task.Name {
 			newTaskList = append(newTaskList, eachTask)
 		}
 	}

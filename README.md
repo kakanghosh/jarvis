@@ -21,7 +21,7 @@ $ jarvis add-task -n "task-1" -d "absolute directory path of the task(optional)"
 $ jarvis tasks
 ```
 
-## To run the application
+## To run the task
 
 ```
 $ jarvis run task-1
