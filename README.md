@@ -6,7 +6,7 @@
 
 # How to configure jarvis in the system
 
-Just go to the [releases](https://github.com/kakanghosh/jarvis/releases]) and download the asset from the latest release compatible of your os.
+Just go to the [releases](https://github.com/kakanghosh/jarvis/releases) and download the asset from the latest release compatible of your os.
 
 After that
 
