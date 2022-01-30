@@ -21,6 +21,12 @@ export ASSET_DOWNLOAD_LINK="https://github.com/kakanghosh/jarvis/releases/downlo
 
 curl -L $ASSET_DOWNLOAD_LINK -o jarvis && chmod +x jarvis && mv jarvis /usr/local/bin
 ```
+To check if it is configured correctly,
+open terminal and run 
+
+`$ jarvis version`
+
+If it outputs the version properly then you are good to go to play with the jarvis.
 
 # Task
 
