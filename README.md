@@ -2,7 +2,25 @@
 
 `Jarvis is a command line application.`
 
-### The goal of this application is to make developer life one step easier. The primary goal of this application to automate and do repeated task with minimum step.
+### The goal of this application is to make developer life one step easier. The primary goal of this application is to automate and do repetitive tasks with minimum steps.
+
+# How to configure jarvis in the system
+
+Just go to the [releases](https://github.com/kakanghosh/jarvis/releases]) and download the asset from the latest release compatible of your os.
+
+After that
+
+- Rename the download file to jarvis `$ mv file_name jarvis`
+- Give execution permission to jarvis `$ chmod +x jarvis`
+- And move the file to `/usr/local/bin` for that run `$ mv jarvis /usr/local/bin`
+
+```
+Example:
+
+export ASSET_DOWNLOAD_LINK="https://github.com/kakanghosh/jarvis/releases/download/v2.0.0/jarvis-linux"
+
+curl -L $ASSET_DOWNLOAD_LINK -o jarvis && chmod +x jarvis && mv jarvis /usr/local/bin
+```
 
 # Task
 
