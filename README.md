@@ -48,7 +48,9 @@ $ jarvis tasks
 ## To run the task
 
 ```
-$ jarvis run task-1
+$ jarvis run task-1 (run task by task name)
+or
+$ jarvis run 1 (run task by task serial)
 ```
 
 > Basically, you can add any thing as task to run using jarvis.
